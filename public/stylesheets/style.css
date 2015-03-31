@@ -1,10 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
+@media(max-width:767px){
+  body {
+    width:70%;
+  }
+}
+@media(min-width:768px){
+  body {
+    width:90%;
+  }
+}
+@media(min-width:992px){
+  body {
+    width:90%;
+  }
+}
+@media(min-width:1200px){
+  body {
+    width:50%;
+  }
+}
+
 body {
   padding: 50px;
   font-family: 'Source Sans Pro', sans-serif;
-  width:50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
