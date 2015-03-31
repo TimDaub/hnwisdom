@@ -1,5 +1,12 @@
 var Datastore = require('nedb');
-var config = require('../config.json');
+
+try {
+  var config = require('../config.json');
+} catch(e) {
+  console.log('config.json is not available, therefore I will use an environment variable.');
+}
+
+var PASSWORD = config.submissionPassword || process.env.password;
 
 exports.index = function(req, res){
   db = new Datastore({ filename: './submissions', autoload: true });
@@ -21,7 +28,7 @@ exports.index = function(req, res){
 };
 
 exports.postSubmissions = function(req, res) {
-  if(req.body.hnid && req.body.hnid > 0 && config.submissionPassword === req.body.password) {
+  if(req.body.hnid && req.body.hnid > 0 && PASSWORD === req.body.password) {
     db = new Datastore({ filename: './submissions', autoload: true });
     db.insert({
       hnid: req.body.hnid,
@@ -44,7 +51,7 @@ exports.postSubmissions = function(req, res) {
 };
 
 exports.deleteSubmissions = function(req, res) {
-  if(req.params.hnid && req.params.hnid > 0 && config.submissionPassword === req.body.password) {
+  if(req.params.hnid && req.params.hnid > 0 && PASSWORD === req.body.password) {
     db = new Datastore({ filename: './submissions', autoload: true });
     db.remove({hnid: parseInt(req.params.hnid, 10)}, {multi: true}, function(err, numRmvd) {
       if(err) {
