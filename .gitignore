@@ -32,3 +32,5 @@ node_modules
 
 # the server config should not be commited
 config.json
+
+submissions
