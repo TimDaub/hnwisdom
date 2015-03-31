@@ -1,6 +1,6 @@
 # Hacker News Wisdom
 
-A tiny express.js/neDB application that handles displaying and saving Hacker News comment IDs. 
+A tiny express.js/neDB application that handles displaying and saving Hacker News comment IDs. I run an instance on [heroku](https://hnwisdom.herokuapp.com). Go check it out!
 All comments are displayed on `/`. 
 If you host this on your own, `POST /submissions` and `DELETE /submissions` can be used to maintain the displayed comments.
 
