@@ -1,4 +1,5 @@
 var Datastore = require('nedb');
+var PASSWORD;
 
 try {
   var config = require('../config.json');
@@ -6,7 +7,11 @@ try {
   console.log('config.json is not available, therefore I will use an environment variable.');
 }
 
-var PASSWORD = config.submissionPassword || process.env.password;
+if(config && config.submissionPassword) {
+  PASSWORD = config.submissionPassword
+} else {
+  PASSWORD = process.env.password;
+}
 
 exports.index = function(req, res){
   db = new Datastore({ filename: './submissions', autoload: true });
