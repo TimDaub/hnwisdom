@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1=title
+  p.subtitle aka comments on Hacker News I find interesting...
+  div.spinner
+    div.cube1
+    div.cube2
+  each submission in submissions
+    div.hn-card(data-hnid=submission.hnid, data-modified=submission.modified)
+      p.text
+      p.meta
+        span.by
+        span.time
+        span.id
