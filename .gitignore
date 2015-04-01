@@ -34,3 +34,5 @@ node_modules
 config.json
 
 submissions
+
+.DS_Store
