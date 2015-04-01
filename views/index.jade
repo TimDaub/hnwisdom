@@ -10,13 +10,17 @@ block content
     |  finds interesting.
   p.subtitle Submissions: tim.daubenschuetz (at) gmail.com || Twitter 
   p.subtitle kk. thx. bye.
-  div.spinner
-    div.cube1
-    div.cube2
   each submission in submissions
-    div.hn-card(data-hnid=submission.hnid, data-modified=submission.modified)
-      p.text
+    div.hn-card
+      p.text !{submission.comment.text}
       p.meta
-        span.by
-        span.time
-        span.id
+        span.by 
+          | by: 
+          a(href="https://news.ycombinator.com/user?id=#{submission.comment.by}" target="_blank") #{submission.comment.by}
+        span.time time: #{submission.comment.time}
+        span.id 
+          | id: 
+          a(href="https://news.ycombinator.com/item?id=#{submission.comment.id}", target="_blank") #{submission.comment.id}
+        span.parent
+          | parent:
+          a(href="https://news.ycombinator.com/item?id=#{submission.comment.parent}", target="_blank") #{submission.comment.parent}

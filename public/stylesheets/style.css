@@ -49,7 +49,7 @@ h1 {
   text-align: right;
 }
 
-.by, .time, .id {
+.by, .time, .id, .parent {
   font-family: 'Inconsolata';
   padding-right: .75em;
   color: #B71C1C;

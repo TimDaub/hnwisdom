@@ -1,4 +1,5 @@
 var Datastore = require('nedb');
+var hnapi = require('../ctrl/hnapi.js');
 var PASSWORD;
 
 try {
@@ -34,20 +35,28 @@ exports.index = function(req, res){
 
 exports.postSubmissions = function(req, res) {
   if(req.body.hnid && req.body.hnid > 0 && PASSWORD === req.body.password) {
-    db = new Datastore({ filename: './submissions', autoload: true });
-    db.insert({
-      hnid: req.body.hnid,
-      modified: new Date()
-    }, function(err, dbres) {
+
+    hnapi.getComment(req.body.hnid, function(err, comment) {
       if(err) {
         res.json(500, err);
       } else {
-        try {
-          delete dbres['_id'];
-          res.json(201, dbres);
-        } catch(err) {
-          res.json(500, err);
-        }
+        db = new Datastore({ filename: './submissions', autoload: true });
+        db.insert({
+          hnid: req.body.hnid,
+          modified: new Date(),
+          comment: comment
+        }, function(err, dbres) {
+          if(err) {
+            res.json(500, err);
+          } else {
+            try {
+              delete dbres['_id'];
+              res.json(201, dbres);
+            } catch(err) {
+              res.json(500, err);
+            }
+          }
+        });
       }
     });
   } else {

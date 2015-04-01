@@ -1,3 +1,4 @@
 {
-  "submissionPassword": "somepassword"
+  "submissionPassword": "somepassword",
+  "hnapi": "https://hacker-news.firebaseio.com/v0/item/"
 }
