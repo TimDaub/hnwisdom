@@ -18,4 +18,6 @@ Make sure you have node.js installed.
 ## Contributions
 I'd absolute love to see contributions from other people. This project is just a place to bookmark wise comments, still it could grow into so much more.
 If you want to participate just submit pull-requests.
-If you have questions, you can hit me up on Twitter ([@TimDaub](https://twitter.com/TimDaub))
+If you have questions, you can hit me up on Twitter ([@TimDaub](https://twitter.com/TimDaub)).
+
+Also, if you're submitting multiple good PRs, I will make you an owner of this project :)
